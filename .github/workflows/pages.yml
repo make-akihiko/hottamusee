@@ -1,0 +1,30 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if it's different (e.g., master)
+
+  # Allow manual runs
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write  # Required to deploy to GitHub Pages
+      contents: read # Required to checkout code
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Updated to v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3 # v3 is current
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2 # v2 is current.  No later versions
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 # v2 is current. No later versions
