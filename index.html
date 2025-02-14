@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Right Align Text Examples</title>
     <style>
-        .right-align {
+        body {
+            position: relative; /* Needed for absolute positioning of the child */
+            min-height: 100vh; /* Ensure body takes up full viewport height */
+            margin: 0; /* Remove default body margins */
+        }
+        .bottom-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px; /* Add some padding around the text */
             text-align: right;
         }
     </style>
 </head>
 <body>
 
-    <p class="right-align">堀田高洋画館　Tell: 0465 68 5032</p>
+    <p>Some content</p>
+    <p>More content</p>
+    <p>Even more content</p>
 
-    
-    </div>
+    <div class="bottom-right">堀田高洋画館　Tell: 0465 68 5032</div>
 
 </body>
 </html>
