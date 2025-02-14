@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your default branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write      # Grants permission to deploy to Pages
+      id-token: write   # Allows requesting the OpenID Connect (OIDC) token
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload files to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .  # Adjust if your index.html is inside a subdirectory
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
