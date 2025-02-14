@@ -9,10 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    permissions:
-      pages: write      # Grants permission to deploy to Pages
-      id-token: write   # Allows requesting the OpenID Connect (OIDC) token
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
